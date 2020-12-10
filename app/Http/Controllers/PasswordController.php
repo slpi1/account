@@ -11,30 +11,6 @@ class PasswordController extends Controller
 {
 
     /**
-     * 获取账号列表
-     *
-     * @method  accounts
-     * @author  雷行  songzhp@yoozoo.com  2020-09-02T12:18:06+0800
-     * @return  array
-     */
-    public function accounts()
-    {
-        if (Auth::check()) {
-            $user = Auth::user();
-
-            $accounts = Site::with('accounts')
-                ->whereHas('accounts', function ($query) use ($user) {
-                    return $query->where('user_id', $user->id);
-                })
-                ->get();
-
-            return $accounts;
-        } else {
-            return [];
-        }
-    }
-
-    /**
      * 获取密码
      *
      * @method  password

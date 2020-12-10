@@ -26,6 +26,12 @@ Route::group([
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('profile', 'IndexController@profile');
-    Route::get('accounts', 'PasswordController@accounts');
     Route::get('password', 'PasswordController@password');
+
+    Route::get('account', 'AccountController@index');
+    Route::put('account', 'AccountController@create');
+    Route::delete('account/{id}', 'AccountController@delete');
+
+    Route::get('site', 'SiteController@index');
+    Route::put('site', 'SiteController@create');
 });
