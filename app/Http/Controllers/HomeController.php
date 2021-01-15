@@ -12,6 +12,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return file_get_contents(public_path('index.html'));
+        return file_get_contents(public_path('dist/index.html'));
     }
 }
